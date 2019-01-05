@@ -18,10 +18,8 @@ public class PruebaTemporizador2 {
 		
 		mireloj.enMarcha();
 		JOptionPane.showMessageDialog(null, "Pulsa aceptar para terminar");
-		System.exit(0);
-		
+		System.exit(0);		
 	}
-
 }
 
 class Reloj {
@@ -32,8 +30,7 @@ class Reloj {
 	public Reloj(int intervalo, boolean sonido) {
 		
 		this.intervalo=intervalo;
-		this.sonido=sonido;
-			
+		this.sonido=sonido;			
 	}
 	
 	public void enMarcha() {
@@ -42,8 +39,7 @@ class Reloj {
 		Timer mitemporizador = new Timer(intervalo, oyente);
 		mitemporizador.start();
 	}
-	
-	
+		
 	//CLASE INTERNA, PUEDE USAR EL CAMPO SONIDO A PESAR DE NO ESTAR DECLARADA EN ELLA MISMA
 	private class DameLaHora2 implements ActionListener{
 
