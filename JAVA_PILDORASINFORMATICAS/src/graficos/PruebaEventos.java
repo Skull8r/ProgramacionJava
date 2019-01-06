@@ -59,9 +59,7 @@ class LaminaBotones extends JPanel {
 		}
 	
 		@Override
-		public void actionPerformed(ActionEvent e) {
-			
-			
+		public void actionPerformed(ActionEvent e) {			
 			setBackground(colorFondo);
 		}
 	}
