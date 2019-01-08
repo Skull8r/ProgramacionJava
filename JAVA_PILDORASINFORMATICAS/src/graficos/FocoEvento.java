@@ -14,8 +14,7 @@ public class FocoEvento {
 		
 		MarcoFoco mimarco = new MarcoFoco();
 		
-		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
 	}
 }
 
@@ -50,24 +49,20 @@ class LaminaFoco extends JPanel{
 		cuadro1.addFocusListener(elFoco);
 		
 		LanzaFoco elFoco2 = new LanzaFoco();
-		cuadro2.addFocusListener(elFoco2);
-		
+		cuadro2.addFocusListener(elFoco2);		
 	}
 	
 	private class LanzaFoco implements FocusListener{
 
 		@Override
 		public void focusGained(FocusEvent arg0) {
-			// TODO Auto-generated method stub
-			
+			// TODO Auto-generated method stub			
 		}
 
 		@Override
 		public void focusLost(FocusEvent arg0) {
-			// TODO Auto-generated method stub
-			
-			System.out.println("Has perdido el foco");
-			
+			// TODO Auto-generated method stub		
+			System.out.println("Has perdido el foco");			
 		}		
 	}	
 }
