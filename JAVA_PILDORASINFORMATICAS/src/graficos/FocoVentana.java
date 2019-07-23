@@ -15,8 +15,6 @@ public class FocoVentana extends JFrame implements WindowFocusListener{
 		FocoVentana miventana = new FocoVentana();
 		miventana.iniciar();
 		
-		
-
 	}
 	
 	public void iniciar(){
@@ -56,10 +54,10 @@ public class FocoVentana extends JFrame implements WindowFocusListener{
 		// TODO Auto-generated method stub
 		
 		if(e.getSource()== marco1) {
-			marco1.setTitle("");
+			marco1.setTitle("He perdido el foco");
 			
 		}else {
-			marco2.setTitle("");
+			marco2.setTitle("He perdido el foco");
 		}
 		
 	}

@@ -34,11 +34,8 @@ class MarcoCentrado extends JFrame{
 		setVisible(true);
 		setTitle("Akita Inu");
 		
-		/*Image miicono = mipantalla.getImage("src/graficos/icono_akita.jpg");
-		setIconImage(miicono);*/  
-		
-		
-		
+		Image miicono = mipantalla.getImage("src/graficos/icono_akita.jpg");
+		setIconImage(miicono);
 	
 	}
 }

@@ -81,6 +81,8 @@ class LaminaFoco extends JPanel{
 				}
 			}
 			
+			
+			
 			if(comprobacion) {
 				System.out.println("Es correcto");
 			}else {
