@@ -1,4 +1,4 @@
-//VIDEO 76 Y 77
+//VIDEO 76 Y 77 || VIDEO 111
 
 package graficos;
 
@@ -11,7 +11,10 @@ import javax.swing.InputMap;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JPanel;
+import javax.swing.JToolBar;
 import javax.swing.KeyStroke;
 
 import java.awt.*;
@@ -42,16 +45,9 @@ class MarcoAccion extends JFrame {
 
 class PanelAccion extends JPanel{
 	
+	
 	public PanelAccion() {
-		/*JButton botonAmarillo = new JButton("Amarillo");
-		JButton botonRojo = new JButton("Rojo");
-		JButton botonAzul = new JButton("Azul");
-		
-		add(botonAmarillo);
-		add(botonAzul);
-		add(botonRojo);*/
-		
-		
+			
 		ImageIcon imagenIcono = new ImageIcon("src/graficos/icono_akita.jpg");
 		Image imgEscalada = imagenIcono.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 		
@@ -62,9 +58,32 @@ class PanelAccion extends JPanel{
 		AccionColor accionAzul = new AccionColor("Azul", iconoEscalado, Color.blue);
 		AccionColor accionRojo = new AccionColor("Rojo", iconoEscalado, Color.red);
 		
-		add(new JButton(accionAmarillo));
-		add(new JButton(accionAzul));
-		add(new JButton(accionRojo));
+		JMenu menu = new JMenu("Color");
+		
+		menu.add(accionRojo);
+		menu.add(accionAmarillo);
+		menu.add(accionAzul);
+		
+		JMenuBar barramenu = new JMenuBar();
+		
+		barramenu.add(menu);
+		
+		add(barramenu);
+		
+		
+		//CONSTRUCCION BARRA HERRAMIENTAS
+		
+		JToolBar barra = new JToolBar();
+		
+		barra.add(accionRojo);
+		barra.add(accionAzul);
+		barra.add(accionAmarillo);
+		
+		add(barra, BorderLayout.NORTH);
+		
+//		add(new JButton(accionAmarillo));
+//		add(new JButton(accionAzul));
+//		add(new JButton(accionRojo));
 		
 		InputMap mapaEntrada = getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
 		
@@ -83,6 +102,8 @@ class PanelAccion extends JPanel{
 		mapaAccion.put("fondo_rojo", accionRojo);
 
 	}
+	
+	
 	
 	private class AccionColor extends AbstractAction{
 		

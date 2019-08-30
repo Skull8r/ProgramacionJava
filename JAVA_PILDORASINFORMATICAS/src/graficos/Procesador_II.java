@@ -1,18 +1,24 @@
-//VIDEOS DEL 101 AL 106
+//VIDEOS DEL 101 AL 106 || 110(ATAJOS DE TECLADO)
 package graficos;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JTextPane;
+import javax.swing.JToolBar;
+import javax.swing.KeyStroke;
 import javax.swing.text.StyledEditorKit;
 
 public class Procesador_II {
@@ -35,8 +41,7 @@ class MenuProcesador extends JFrame{
 		
 		add(milamina);
 		
-		setVisible(true);
-		
+		setVisible(true);		
 	}
 }
 
@@ -58,7 +63,10 @@ class LaminaProcesador extends JPanel{
 			
 		JPanel laminamenu = new JPanel();
 		
+		laminamenu.setBackground(Color.GRAY);
+		
 		mibarra = new JMenuBar();
+		
 		
 		fuente = new JMenu("Fuente");
 		estilo = new JMenu("Estilo");
@@ -87,6 +95,33 @@ class LaminaProcesador extends JPanel{
 		
 		miarea = new JTextPane();
 		add(miarea,BorderLayout.CENTER);
+		
+		JPopupMenu emergente = new JPopupMenu();
+		
+		JMenuItem negritaE = new JMenuItem("Negrita", new ImageIcon("bin/graficos/copiar.gif"));
+		JMenuItem cursivaE = new JMenuItem("Cursiva", new ImageIcon("bin/graficos/copiar.gif"));
+		
+		negritaE.addActionListener(new StyledEditorKit.BoldAction());
+		
+		
+		cursivaE.addActionListener(new StyledEditorKit.ItalicAction());
+	
+		emergente.add(negritaE);
+		emergente.add(cursivaE);
+		
+		miarea.setComponentPopupMenu(emergente);
+		
+		JToolBar barra = new JToolBar();
+		
+		ImageIcon imagen1 = new ImageIcon();
+		
+		
+		JButton negritabarra = new JButton(new ImageIcon("src/graficos/text_bold.png"));
+		
+		
+		barra.add(negritabarra);
+		
+		add(barra, BorderLayout.WEST);
 		
 	}
 	
@@ -117,12 +152,17 @@ class LaminaProcesador extends JPanel{
 			estilo.add(elemmenu);
 			
 			if(estilos == Font.BOLD) {
-				
+					
 				elemmenu.addActionListener(new StyledEditorKit.BoldAction());
+				
+				//ATAJO DE TECLADO PARA PONER EN NEGRITA
+				elemmenu.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_DOWN_MASK));
 				
 			}else if(estilos == Font.ITALIC) {
 			
 				elemmenu.addActionListener(new StyledEditorKit.ItalicAction());
+				//ATAJO DE TECLADO PARA PONER EN CURSIVA
+				elemmenu.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.CTRL_DOWN_MASK));
 			}
 			
 		} else if(menu == "Tamaño"){
@@ -131,12 +171,6 @@ class LaminaProcesador extends JPanel{
 			
 			elemmenu.addActionListener(new StyledEditorKit.FontSizeAction("Cambia tamaño", tam));
 						
-		}
-		
-	}
-			
+		}		
+	}			
 }
-
-
-
-
